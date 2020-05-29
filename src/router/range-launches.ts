@@ -3,10 +3,10 @@ const path = require("path");
 
 const router = express.Router();
 
-import {Launches} from path.resolve(__dirname + "../src/spaceX/launches");
+import {Launches} from "../spaceX/launches"
 
 //Handles the query parameter
-router.get("/", async function(req, res, next){
+router.get("/", async function(req: any, res: any){
     const yearly = new Launches();
 
     let start = req.query.start;
