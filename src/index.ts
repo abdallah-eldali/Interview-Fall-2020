@@ -47,6 +47,9 @@ app.get('/range-launches', async function(req: any, res: any){
         day: Number(end.substring(9, 10))
     }
 
+    console.log(objectStart);
+    console.log(objectEnd);
+
     //Get the the difference in years between 'start' and 'end'
     let lentgh = objectEnd.year - objectStart.year; 
     //Create an empty Array where where the launch objects will be stored
@@ -54,7 +57,8 @@ app.get('/range-launches', async function(req: any, res: any){
     //Request the API for every launch from start to end
     for (let i = 0; i < lentgh; ++i){
         //Request for the launches from the start day all the way up to the end date
-        const result = await yearly.getLaunchesByYear((start.year + 1).toString());
+        console.log('Requesting for year: ' + (objectStart.year + 1).toString());
+        const result = await yearly.getLaunchesByYear((objectStart.year + 1).toString());
         launches.push(result);
     }
 
