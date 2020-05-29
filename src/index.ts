@@ -57,8 +57,8 @@ app.get('/range-launches', async function(req: any, res: any){
     //Request the API for every launch from start to end
     for (let i = 0; i < lentgh; ++i){
         //Request for the launches from the start day all the way up to the end date
-        console.log('Requesting for year: ' + (objectStart.year + 1).toString());
-        const result = await yearly.getLaunchesByYear((objectStart.year + 1).toString());
+        console.log('Requesting for year: ' + (objectStart.year + i).toString());
+        const result = await yearly.getLaunchesByYear((objectStart.year + i).toString());
         launches.push(result);
     }
 
