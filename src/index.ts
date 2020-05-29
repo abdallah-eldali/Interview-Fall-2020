@@ -20,6 +20,10 @@ app.get('/yearly-launches', async (request: any, response: any) => {
   response.send(result);
 });
 
+//mounting the router /range-launches
+const rangeLaunchesRouter = require(__dirname + '/range-launches.ts');
+app.use('/range-launches', rangeLaunchesRouter);
+
 // start the Express server
 app.listen(port, () => {
   // tslint:disable-next-line:no-console
