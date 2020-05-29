@@ -29,8 +29,10 @@ app.use('/range-launches', rangeLaunchesRouter);
 
 //Handles the query parameter
 app.get('/range-launches', async function(req: any, res: any){
+    //Creating a Launches object to communicate with the API
     const yearly = new Launches();
 
+    //strings representation of the dates
     let start = req.query.start;
     let end = req.query.end;
 
@@ -47,6 +49,7 @@ app.get('/range-launches', async function(req: any, res: any){
         day: Number(end.substring(9, 10))
     }
 
+    //Printing for testing
     console.log(objectStart);
     console.log(objectEnd);
 
@@ -63,7 +66,7 @@ app.get('/range-launches', async function(req: any, res: any){
     }
 
     console.log(launches);
-    
+    //Send the array of Launch objects
     res.send(launches);
 });
 
